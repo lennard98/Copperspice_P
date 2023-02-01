@@ -1,0 +1,5 @@
+/home/lennard/Copperspice_P/deploy/./Addierer
+/home/lennard/Copperspice_P/deploy/./libCsCore1.7.so
+/home/lennard/Copperspice_P/deploy/./libCsGui1.7.so
+/home/lennard/Copperspice_P/deploy/./platforms/CsGuiXcb1.7.so
+/home/lennard/Copperspice_P/deploy/./libCsXcbSupport1.7.so

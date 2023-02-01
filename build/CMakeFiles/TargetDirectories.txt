@@ -1,0 +1,7 @@
+/home/lennard/Copperspice_P/build/CMakeFiles/Addierer.dir
+/home/lennard/Copperspice_P/build/CMakeFiles/edit_cache.dir
+/home/lennard/Copperspice_P/build/CMakeFiles/rebuild_cache.dir
+/home/lennard/Copperspice_P/build/CMakeFiles/list_install_components.dir
+/home/lennard/Copperspice_P/build/CMakeFiles/install.dir
+/home/lennard/Copperspice_P/build/CMakeFiles/install/local.dir
+/home/lennard/Copperspice_P/build/CMakeFiles/install/strip.dir
