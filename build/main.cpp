@@ -9,9 +9,12 @@ private:
     QLineEdit   *display;
     QGridLayout *layout;
     QPushButton *button_add;
+    QPushButton *button_substract;
+    QPushButton *button_mult;
+    QPushButton *button_div;
     QPushButton *button_equals;
     QPushButton *button_clear;
-    QPushButton *button_str_pb;
+    
 
     //Definition der Zahlen und Operationen
     double zahl_1;
@@ -22,8 +25,12 @@ private:
     //Anlegen der Methoden (Funktionen in einer Klasse)
     void display_setText();
     void button_add_clicked();
+    void button_substract_clicked();
+    void button_mult_clicked();
+    void button_div_clicked();
     void button_equals_clicked();
     void button_clear_clicked();
+
     
 public:
     MainWindow();
@@ -39,6 +46,9 @@ MainWindow::MainWindow()
     
     
     button_add = new QPushButton("+", this);
+    button_substract = new QPushButton("-",this);
+    button_mult = new QPushButton("*",this);
+    button_div = new QPushButton("/",this);
     button_equals = new QPushButton("=",this);
     button_clear = new QPushButton("Löschen",this);
     
@@ -49,9 +59,12 @@ MainWindow::MainWindow()
     layout = new QGridLayout(this);
     layout->addWidget(display, 0, 1, 1, 3);
     layout->addWidget(button_clear, 0, 0);
-    
     layout->addWidget(button_equals, 4, 2);
-    layout->addWidget(button_add, 4, 3);
+    layout->addWidget(button_add, 5, 1);
+    layout->addWidget(button_substract, 5, 2);
+    layout->addWidget(button_mult, 5, 3);
+    layout->addWidget(button_div, 5, 4);
+    
     
 
     setLayout(layout);
@@ -60,6 +73,9 @@ MainWindow::MainWindow()
     
     
     connect(button_add, &QPushButton::clicked, this, &MainWindow::button_add_clicked);
+    connect(button_substract, &QPushButton::clicked, this, &MainWindow::button_substract_clicked);
+    connect(button_mult, &QPushButton::clicked, this, &MainWindow::button_mult_clicked);
+    connect(button_div, &QPushButton::clicked, this, &MainWindow::button_div_clicked);
     connect(button_equals, &QPushButton::clicked, this, &MainWindow::button_equals_clicked);
     connect(button_clear, &QPushButton::clicked, this, &MainWindow::button_clear_clicked);
     connect(display, &QLineEdit::returnPressed, this, &MainWindow::display_setText);
@@ -86,15 +102,50 @@ void MainWindow::button_add_clicked()
     display->clear();
 }
 
+void MainWindow::button_substract_clicked()
+{
+    zahl_1 = display->text().toDouble();
+    operation = '-';
+    display->clear();
+}
+
+void MainWindow::button_mult_clicked()
+{
+    zahl_1 = display->text().toDouble();
+    operation = '*';
+    display->clear();
+}
+
+void MainWindow::button_div_clicked()
+{
+    zahl_1 = display->text().toDouble();
+    operation = '/';
+    display->clear();
+}
+
 void MainWindow::button_equals_clicked()
 {
     zahl_2 = display->text().toDouble();
 
-    if(operation == '+')
+   if(operation == '+')
     {
-        ergebnis = zahl_1 + zahl_2;
+        ergebnis = zahl_1+ zahl_2;
     }
-    
+    else if(operation == '-')
+    {
+        ergebnis = zahl_1 - zahl_2;
+    }
+    else if(operation == '*')
+    {
+        ergebnis = zahl_1 * zahl_2;
+    }
+    else if(operation == '/')
+    {
+        if(zahl_2 != 0)
+        {
+            ergebnis = zahl_1 / zahl_2;
+        }
+    }
 
     display->setText(QString::number(ergebnis));
 }
